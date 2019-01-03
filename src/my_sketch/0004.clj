@@ -21,14 +21,15 @@
   (/ (q/height) rows))
 
 (defn to-radians
-  "Convert current row and column to radians with a chance of extreme 1 or 0
+  "Convert current row and column to radians with a chance of extreme value
   for multiplier."
   [row column]
-  (if (> (rand-int 100) 90)
-    (* 0.85 Math/PI)
+  (if (> (rand) 0.9)
+    (if (> (rand) 0.4) (* 0.9 Math/PI) (* 0.1 Math/PI))
     (+
      (* 0.3 Math/PI (/ row rows))
-     (* 0.7 Math/PI (/ column columns)))))
+     (* 0.7 Math/PI (/ column columns))
+     (* 0.4 (rand) Math/PI))))
 
 (defn hue
   "Calculates the hue for this row/column."
@@ -67,7 +68,7 @@
   (dotimes [column columns]
     (dotimes [row rows]
       (def hue1 (hue row column))
-      (def hue2 (hue row column))
+      (def hue2 (hue row (+ 0.5 column)))
       (q/fill hue1 200 200)
       (q/stroke hue1 200 200)
       (triangle row column)
