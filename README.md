@@ -2,6 +2,8 @@
 
 In this repository I collect various attempts at randomly and/or automatically generating content.
 
+I usually write about the projects [on my blog](https://blog.schenck.online/tag/images/).
+
 ## Examples
 
 Examples from the `processing/renders` directory:
